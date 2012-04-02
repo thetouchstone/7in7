@@ -1,0 +1,21 @@
+-module(day1).
+-export([count_words/1]).
+-export([count_to_10/1]).
+-export([print_success/1]).
+count_words(Str) ->
+     count_items(string:tokens(Str, " ")).
+
+count_items([]) ->
+    0;
+count_items([_|Tail]) ->
+    1 + count_items(Tail).
+
+count_to_10(10) -> 
+    10;
+count_to_10(N) -> 
+    count_to_10(N+1).
+print_success({error,Y}) ->
+    io:print("error" + Y);
+print_success({success,Y}) ->
+    io:print(Y).
+		     
